@@ -1,2 +1,0 @@
-# Beginners
-Good Bye world
