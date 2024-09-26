@@ -15,11 +15,17 @@ RUN \
   else echo "Lockfile not found." && exit 1; \
   fi
 
+# Development stage
+FROM base AS development
+WORKDIR /app
+COPY --from=deps /app/node_modules ./node_modules
+COPY . .
+EXPOSE 3000
+CMD ["npm", "run", "dev"]
 
 # Rebuild the source code only when needed
 FROM base AS builder
 WORKDIR /app
-COPY . .
 COPY --from=deps /app/node_modules ./node_modules
 RUN npm run build
 RUN mkdir -p public  
