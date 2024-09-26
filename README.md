@@ -1,4 +1,4 @@
-# Your Next.js App Name
+# Begginners Next.js App
 
 ## Running with Docker
 
