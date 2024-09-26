@@ -80,4 +80,8 @@ The production setup builds an optimized version of the app:
 
 ## Environment Variables
 
-[N/A for now]
+- Next.js 14.2.13
+- React 18
+- React DOM 18
+- Tailwind CSS 3.4.1
+- PostCSS 8
