@@ -1,28 +1,83 @@
-# Begginners Next.js App
+# Beginners Next.js App
+
+## Docker Setup
+
+Our Docker configuration supports two environments: development and production.
+
+### Development Environment
+
+The development setup uses Docker Compose to create an environment with live reloading:
+
+- A development-specific stage in the Dockerfile that runs `npm run dev`
+- Volume mounting in docker-compose.yml to reflect local changes immediately
+- Environment set to development mode
+
+This allows you to see your changes in real-time without rebuilding the Docker image (make sure to disable cache in browser settings).
+
+### Production Environment
+
+The production setup builds an optimized version of the app:
+
+- Runs the built Next.js application
+- This is exaclt what a live site would run
 
 ## Running with Docker
 
-1. Clone this repository:
-   ```
+### Development Mode (with live reloading)
+
+## Getting Started
+
+1. If you haven't cloned the repository yet:
+
+   ```bash
    git clone https://github.com/your-username/your-repo-name.git
    cd your-repo-name
    ```
 
-2. Build the Docker image:
-   ```
-   docker build -t nextapp .
+2. If you've already cloned the repository, update it:
+
+   ```bash
+   git pull
    ```
 
-3. Run the Docker container:
+3. Start the development server:
+
+   ```shell
+   docker compose up
    ```
-   docker run -p 3000:3000 nextapp
-   ```
+
+   Note: If you're using an older version of Docker, you may need to use `docker-compose up` instead.
 
 4. Open your browser and navigate to `http://localhost:3000`
 
+5. Make changes to your code and see them reflected in real-time!
+
+### Production Mode
+
+1. Build the Docker image:
+
+   ```shell
+   docker build -t nextapp .
+   ```
+
+2. Run the Docker container:
+
+   ```shell
+   docker run -p 3000:3000 nextapp
+   ```
+
+3. Open your browser and navigate to `http://localhost:3000`
+
 ## Development
 
-[Include any additional instructions for development here]
+1. Our development process will consist of individually making specific "components" for each function of the website. These "components" (functions in C++ terms) will be the building blocks for our website. To start developing, this is an Object Oriented approach so don't worry about how the function will fit into the website, focus on the function itself. Keep in mind that a lot of our Kanban Board issues are similar. In short, our site's primary function is, search and return search results. Everything else will build off this.
+
+2. To start developing without Docker, run the development server:
+
+   ```shell
+   npm run dev
+   ```
+   Note: this will require a local install of Node.js, npm, and all other dependencies.
 
 ## Environment Variables
 
