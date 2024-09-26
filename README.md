@@ -8,9 +8,7 @@ Our Docker configuration supports two environments: development and production.
 
 The development setup uses Docker Compose to create an environment with live reloading:
 
-- A development-specific stage in the Dockerfile that runs `npm run dev`
-- Volume mounting in docker-compose.yml to reflect local changes immediately
-- Environment set to development mode
+- Dockerfile will run `npm run dev` for you
 
 This allows you to see your changes in real-time without rebuilding the Docker image (make sure to disable cache in browser settings).
 
@@ -18,12 +16,12 @@ This allows you to see your changes in real-time without rebuilding the Docker i
 
 The production setup builds an optimized version of the app:
 
-- Runs the built Next.js application
-- This is exaclt what a live site would run
+- Runs `npm run build` for you
+- This is exactly what a live server would do
 
 ## Running with Docker
 
-### Development Mode (with live reloading)
+### Development Mode (USE THIS)
 
 ## Getting Started
 
@@ -52,7 +50,7 @@ The production setup builds an optimized version of the app:
 
 5. Make changes to your code and see them reflected in real-time!
 
-### Production Mode
+### Production Mode (Not recommended for development)
 
 1. Build the Docker image:
 
@@ -77,6 +75,7 @@ The production setup builds an optimized version of the app:
    ```shell
    npm run dev
    ```
+
    Note: this will require a local install of Node.js, npm, and all other dependencies.
 
 ## Environment Variables
