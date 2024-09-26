@@ -19,8 +19,13 @@ RUN \
 # Rebuild the source code only when needed
 FROM base AS builder
 WORKDIR /app
-COPY --from=deps /app/node_modules ./node_modules
 COPY . .
+COPY --from=deps /app/node_modules ./node_modules
+RUN npm run build
+RUN mkdir -p public  
+# Create public directory if it doesn't exist
+RUN ls -la /app  
+# This will list the contents of the /app directory
 
 # Next.js collects completely anonymous telemetry data about general usage.
 # Learn more here: https://nextjs.org/telemetry
