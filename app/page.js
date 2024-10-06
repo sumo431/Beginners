@@ -1,4 +1,3 @@
-// pages/_app.js (or pages/index.js if you don't have _app.js)
 'use client';
 
 import SearchContainer from './components/Searchbar';

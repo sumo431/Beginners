@@ -7,7 +7,6 @@ export default function Entry() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Handle form submission here
     console.log('Title:', title);
     console.log('Text:', text);
     setIsOpen(false);
