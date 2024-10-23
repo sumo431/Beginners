@@ -1,5 +1,6 @@
 'use client';
 
+
 import SearchContainer from './components/Searchbar';
 
 export default function Home(){
