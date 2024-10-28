@@ -2,7 +2,7 @@
 
 
 import SearchContainer from './components/Searchbar';
-import './styles/globalfont.css';
+
 
 export default function Home(){
   return (
