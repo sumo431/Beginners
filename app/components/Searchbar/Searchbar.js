@@ -18,7 +18,7 @@ export default function Searchbar({ onSearch }) {
             <form onSubmit={handleSubmit} className="w-full max-w-xl">
                 <div className="flex items-center border-b border-b-2 border-blue-500 py-2">
                     <input
-                        className="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none"
+                        className="appearance-none bg-transparent border-none w-full text-white mr-3 py-1 px-2 leading-tight focus:outline-none" // Changed text-gray-700 to text-white
                         type="text"
                         placeholder="Search..."
                         aria-label="Search"
