@@ -1,48 +1,8 @@
-<<<<<<< HEAD
 'use client';
 
 import { useState } from 'react';
 
-export default function Searchbar({ onSearch }) {
-    const [query, setQuery] = useState('');
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        if (query.trim()) {
-            onSearch(query); // Call the onSearch function passed from SearchContainer
-            setQuery(''); // Clear the search bar after submission
-        }
-    };
-
-    return (
-        <div className="w-full flex justify-center">
-            <form onSubmit={handleSubmit} className="w-full max-w-xl">
-                <div className="flex items-center border-b border-b-2 border-blue-500 py-2">
-                    <input
-                        className="appearance-none bg-transparent border-none w-full text-white mr-3 py-1 px-2 leading-tight focus:outline-none"
-                        type="text"
-                        placeholder="Search..."
-                        aria-label="Search"
-                        value={query}
-                        onChange={(e) => setQuery(e.target.value)}
-                    />
-                    <button
-                        className="flex-shrink-0 bg-blue-500 hover:bg-blue-700 border-blue-500 hover:border-blue-700 text-sm border-4 text-white py-1 px-2 rounded"
-                        type="submit"
-                    >
-                        Search
-                    </button>
-                </div>
-            </form>
-        </div>
-    );
-}
-=======
-'use client';
-
-import { useState } from 'react';
-
-export default function Searchbar({ onSearch }) {
+export default function Searchbar({ onSearch, noResults }) {
     const [query, setQuery] = useState('');
 
     const handleSubmit = (e) => {
@@ -54,11 +14,11 @@ export default function Searchbar({ onSearch }) {
     };
 
     return (
-        <div className="w-full flex justify-center">
+        <div className="w-full flex justify-center mb-4"> {/* Center the search bar and add margin */}
             <form onSubmit={handleSubmit} className="w-full max-w-xl">
-                <div className="flex items-center border-b border-b-2 border-blue-500 py-2">
+                <div className="flex items-center border border-yellow-500 rounded-lg overflow-hidden shadow-md transition duration-300 ease-in-out transform hover:scale-105"> {/* Add rounded corners, shadow, and yellow outline */}
                     <input
-                        className="appearance-none bg-transparent border-none w-full text-white mr-3 py-1 px-2 leading-tight focus:outline-none" // Changed text-gray-700 to text-white
+                        className="appearance-none bg-gray-800 border-none w-full text-white py-2 px-4 leading-tight focus:outline-none transition duration-300 ease-in-out placeholder-gray-400"
                         type="text"
                         placeholder="Search..."
                         aria-label="Search"
@@ -66,7 +26,7 @@ export default function Searchbar({ onSearch }) {
                         onChange={(e) => setQuery(e.target.value)}
                     />
                     <button
-                        className="flex-shrink-0 bg-blue-500 hover:bg-blue-700 border-blue-500 hover:border-blue-700 text-sm border-4 text-white py-1 px-2 rounded"
+                        className="flex-shrink-0 bg-blue-500 hover:bg-blue-700 text-sm text-white py-2 px-4 rounded-lg transition duration-300 ease-in-out" // Style button with rounded corners and hover effect
                         type="submit"
                     >
                         Search
@@ -76,4 +36,3 @@ export default function Searchbar({ onSearch }) {
         </div>
     );
 }
->>>>>>> c7eacfe49181256c39eec95d291059c538ba5697
