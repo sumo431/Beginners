@@ -3,25 +3,80 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+    --background: #ffffff;
+    --foreground: #171717;
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+    :root {
+        --background: #0a0a0a;
+        --foreground: #ededed;
+    }
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+    color: var(--foreground);
+    background: var(--background);
+    font-family: Arial, Helvetica, sans-serif;
 }
 
+/* Enhanced styles for the search container */
+.search-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 30px;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.1); /* Semi-transparent background */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); /* Stronger shadow effect */
+    transition: background 0.3s ease; /* Smooth transition for background */
+}
+
+    /* Change background color on hover */
+    .search-container:hover {
+        background: rgba(255, 255, 255, 0.2); /* Change to a lighter background on hover */
+    }
+
+    /* Styles for the input */
+    .search-container input {
+        border: 1px solid rgba(255, 255, 255, 0.5);
+        border-radius: 20px;
+        padding: 10px 20px;
+        margin-right: 10px;
+        background: rgba(0, 0, 0, 0.3);
+        color: white;
+        transition: border-color 0.3s ease; /* Smooth transition for border color */
+    }
+
+        /* Change border color on focus */
+        .search-container input:focus {
+            border-color: #007bff; /* Change border color on focus */
+            outline: none; /* Remove default outline */
+        }
+
+    /* Styles for the button */
+    .search-container button {
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 20px;
+        cursor: pointer;
+        transition: background-color 0.3s ease, transform 0.2s; /* Smooth transition for background and scale */
+    }
+
+        .search-container button:hover {
+            background-color: #0056b3;
+            transform: scale(1.05); /* Scale button slightly on hover */
+        }
+
 @layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+    .text-balance {
+        text-wrap: balance;
+    }
+}
+
+/* Increase scale for box hover effect */
+.hover\:scale-150:hover {
+    transform: scale(1.5); /* Scale boxes to 150% */
 }
