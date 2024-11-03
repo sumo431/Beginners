@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import SearchContainer from './components/Searchbar/SearchContainer';
+import SearchContainer from './components/Searchbar/SearchContainer'; // Adjust path if necessary
 import Link from 'next/link';
 import EntryButton from './components/UserEntries/EntryButton';
 
@@ -17,8 +17,8 @@ export default function HomePage() {
 
     return (
         <div className="p-4 bg-black min-h-screen flex flex-col items-center relative">
-            <h1 className="text-5xl font-bold mb-4 text-white glow cursive-font">Beginners</h1> {/* Increased font size */}
-            <p className="mb-4 text-white text-center animate-fadeIn text-3xl"> {/* Increased font size */}
+            <h1 className="text-5xl font-bold mb-4 text-white glow cursive-font">Beginners</h1>
+            <p className="mb-4 text-white text-center animate-fadeIn text-3xl">
                 Welcome!
             </p>
 
@@ -33,7 +33,7 @@ export default function HomePage() {
             </Link>
 
             <div className="w-full max-w-xl mb-8">
-                <SearchContainer />
+                <SearchContainer /> {/* This renders your boxes */}
             </div>
 
             <EntryButton />

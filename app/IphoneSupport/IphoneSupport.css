@@ -1,0 +1,145 @@
+/* Overall styling for the video section */
+.video-section {
+    margin: 20px 0;
+    border: 1px solid #ccc; /* Light gray border for each video section */
+    padding: 15px;
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    background-color: #f9f9f9; /* Light background color */
+}
+
+/* Glow effect for headers */
+.glow {
+    text-shadow: 0 0 10px rgba(255, 255, 0, 0.8); /* Yellow glow */
+}
+
+/* Cursive font styling */
+.cursive-font {
+    font-family: 'Cursive', sans-serif; /* Apply cursive font */
+    font-size: 2.5rem; /* Increase font size for emphasis */
+    color: yellow; /* Yellow color for cursive text */
+}
+
+/* Animation for fade-in effect */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Apply fade-in animation */
+.animate-fadeIn {
+    animation: fadeIn 2s ease-in-out; /* Fade in over 2 seconds */
+}
+
+/* Styling for the search input and button */
+.search-container {
+    margin: 20px 0; /* Space around the search input */
+    display: flex; /* Flexbox to align input and button */
+}
+
+.search-button {
+    background-color: #007bff; /* Primary button color */
+    color: white; /* Text color */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
+    padding: 10px 15px; /* Padding for the button */
+    cursor: pointer; /* Pointer cursor on hover */
+    margin-left: 10px; /* Space between input and button */
+    transition: background-color 0.3s; /* Smooth transition for background color */
+}
+
+.search-button:hover {
+    background-color: #0056b3; /* Darker shade on hover */
+}
+
+/* Comment box styling */
+.feedback-form {
+    margin: 20px 0; /* Margin for the feedback form */
+}
+
+.comment-prompt {
+    margin-bottom: 10px; /* Space below the prompt */
+    font-weight: bold; /* Make the prompt text bold */
+}
+
+.comment-input {
+    width: 100%; /* Full width of the parent */
+    height: 60px; /* Height of the textarea */
+    padding: 10px; /* Padding inside the textarea */
+    border: 1px solid #ccc; /* Light gray border */
+    border-radius: 5px; /* Rounded corners */
+    resize: none; /* Disable resizing */
+}
+
+.comment-input:focus {
+    border-color: #007bff; /* Change border color on focus */
+    outline: none; /* Remove default outline */
+}
+
+/* Displaying comments */
+.comment-display {
+    margin-top: 15px; /* Space above comment display */
+}
+
+.comment-box {
+    border: 1px solid #007bff; /* Blue border for each comment box */
+    padding: 10px; /* Padding inside the comment box */
+    margin: 10px 0; /* Margin between comment boxes */
+    border-radius: 5px; /* Rounded corners for comments */
+    background-color: #e6f7ff; /* Light blue background for comments */
+}
+
+/* Styling for comment text */
+.comment-text {
+    margin: 5px 0; /* Margin above and below the comment text */
+}
+
+/* Styling for reply buttons */
+.reply-button {
+    margin-left: 10px; /* Space between the comment and the button */
+    background-color: #007bff; /* Button color */
+    color: white; /* Button text color */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
+    padding: 5px 10px; /* Padding for the button */
+    cursor: pointer; /* Pointer on hover */
+}
+
+.reply-button:hover {
+    background-color: #0056b3; /* Darker shade on hover */
+}
+
+/* Styling for replies */
+.replies {
+    margin-left: 20px; /* Indent for replies */
+    margin-top: 5px; /* Space above replies */
+}
+
+/* Nested replies styling */
+.nested-replies {
+    margin-left: 20px; /* Indent for nested replies */
+    margin-top: 5px; /* Space above nested replies */
+    padding: 10px; /* Padding for nested reply box */
+    border: 1px solid #007bff; /* Border for nested replies */
+    border-radius: 5px; /* Rounded corners */
+    background-color: #e6f7ff; /* Light blue background for nested replies */
+}
+
+/* Black background for the entire page */
+body {
+    background-color: black; /* Black background color */
+    color: black; /* Default text color for visibility */
+}
+
+/* Min height for main content to take full screen */
+.min-h-screen {
+    min-height: 100vh; /* Ensure full height */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /* Center content vertically */
+}
