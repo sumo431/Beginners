@@ -67,17 +67,19 @@
     font-weight: bold; /* Make the prompt text bold */
 }
 
+/* Updated comment input styling for seamless look */
 .comment-input {
     width: 100%; /* Full width of the parent */
-    height: 60px; /* Height of the textarea */
+    height: 80px; /* Increased height for a larger comment box */
     padding: 10px; /* Padding inside the textarea */
-    border: 1px solid #ccc; /* Light gray border */
-    border-radius: 5px; /* Rounded corners */
+    border: none; /* No border for a seamless look */
+    border-radius: 10px; /* Rounded corners */
+    background-color: #e6f7ff; /* Light blue background */
     resize: none; /* Disable resizing */
 }
 
+    /* Focus effect for comment input */
     .comment-input:focus {
-        border-color: #007bff; /* Change border color on focus */
         outline: none; /* Remove default outline */
     }
 
@@ -86,8 +88,8 @@
     margin-top: 15px; /* Space above comment display */
 }
 
+/* Styling for comment boxes */
 .comment-box {
-    border: 1px solid #007bff; /* Blue border for each comment box */
     padding: 10px; /* Padding inside the comment box */
     margin: 10px 0; /* Margin between comment boxes */
     border-radius: 5px; /* Rounded corners for comments */
@@ -104,10 +106,11 @@
     margin-left: 10px; /* Space between the comment and the button */
     background-color: #007bff; /* Button color */
     color: white; /* Button text color */
-    border: none; /* No border */
+    border: 1px solid #007bff; /* Blue border for the reply button */
     border-radius: 5px; /* Rounded corners */
     padding: 5px 10px; /* Padding for the button */
     cursor: pointer; /* Pointer on hover */
+    transition: background-color 0.3s; /* Smooth transition for background color */
 }
 
     .reply-button:hover {
@@ -133,7 +136,7 @@
 /* Black background for the entire page */
 body {
     background-color: black; /* Black background color */
-    color: black; /* Default text color for visibility */
+    color: #ffcc00; /* Default text color for visibility */
 }
 
 /* Min height for main content to take full screen */
@@ -196,10 +199,28 @@ body {
     text-align: center;
 }
 
-/* Styling for comment input and upload sections */
-.comment-prompt,
-.upload-button,
-.comment-text,
-.reply-text {
-    color: #ffcc00; /* Set yellow text color to match theme */
+/* Styling for the main video import button */
+.main-video-button {
+    background-color: #28a745; /* Bright green for visibility */
+    color: white; /* White text */
+    padding: 10px 20px; /* Adequate padding */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor */
+    transition: background-color 0.3s; /* Smooth transition */
+    margin-bottom: 20px; /* Space below the button */
+}
+
+    .main-video-button:hover {
+        background-color: #218838; /* Darker green on hover */
+    }
+.uploaded-video-container {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.uploaded-video {
+    width: 100%;
+    max-width: 600px; /* or any size you prefer */
+    height: auto;
 }
