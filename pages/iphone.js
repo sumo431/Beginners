@@ -2,7 +2,7 @@
 import IphoneSearch from '../app/IphoneSupport/IphoneSearch';
 import ProgressTracker from '../Checkpoints/ProgressTracker';
 import '../app/IphoneSupport/IphoneSupport.css';
-import './IphoneQuiz.js'
+import './IphoneQuiz.js';
 
 export default function IphonePage() {
     const [videoComments, setVideoComments] = useState([[], [], []]);
@@ -14,34 +14,20 @@ export default function IphonePage() {
     const [canProceed, setCanProceed] = useState(false);
     const [showTasks, setShowTasks] = useState(false);
     const [message, setMessage] = useState('');
-    const [reloadKey, setReloadKey] = useState(0); // New state variable to trigger re-render
-    const IphonePage = () => {
-        const [quizPassed, setQuizPassed] = useState(false);
+    const [reloadKey, setReloadKey] = useState(0); // New state to trigger re-render
+    const [quizPassed, setQuizPassed] = useState(false);
 
-        useEffect(() => {
-            const passed = localStorage.getItem('quizPassed');
-            if (passed === 'true') {
-                setQuizPassed(true);
-                setMessage('Congratulations! You have passed the quiz! 🎉');
-                localStorage.removeItem('quizPassed'); // Optionally remove after reading
-            }
-        }, []);
+    // Check for quiz completion in local storage
+    useEffect(() => {
+        const passed = localStorage.getItem('quizPassed');
+        if (passed === 'true') {
+            setQuizPassed(true);
+            setMessage('Congratulations! You have passed the quiz! 🎉');
+            localStorage.removeItem('quizPassed'); // Clear after reading
+        }
+    }, []);
 
-        return (
-            <div className="min-h-screen bg-black text-white flex flex-col items-center">
-                <h1 className="glow cursive-font animate-fadeIn">iPhone Video Guides</h1>
-                {quizPassed && (
-                    <div className="success-message">
-                        {message}
-                    </div>
-                )}
-                {/* Other components like IphoneSearch and ProgressTracker */}
-                <IphoneSearch />
-                <ProgressTracker />
-            </div>
-        );
-    }
-
+    // Handle comment submission
     const handleCommentSubmit = (index) => {
         const commentInput = commentInputs[index];
         if (commentInput) {
@@ -56,6 +42,7 @@ export default function IphonePage() {
         }
     };
 
+    // Handle reply submission
     const handleReplySubmit = (videoIndex, commentIndex) => {
         const replyInput = replyInputs[videoIndex][commentIndex];
         if (replyInput) {
@@ -70,6 +57,7 @@ export default function IphonePage() {
         }
     };
 
+    // Handle nested reply submission
     const handleNestedReplySubmit = (videoIndex, commentIndex, replyIndex) => {
         const nestedReplyInput = nestedReplyInputs[videoIndex][commentIndex]?.[replyIndex];
         if (nestedReplyInput) {
@@ -84,6 +72,7 @@ export default function IphonePage() {
         }
     };
 
+    // Handle video upload
     const handleVideoUpload = (index, event) => {
         const file = event.target.files[0];
         if (file) {
@@ -102,7 +91,7 @@ export default function IphonePage() {
     const handleCompletion = (isComplete) => {
         setCanProceed(isComplete);
         if (isComplete) {
-            setReloadKey((prev) => prev + 1); // Increment to trigger a re-render
+            setReloadKey((prev) => prev + 1); // Trigger a re-render
         }
     };
 
@@ -111,31 +100,34 @@ export default function IphonePage() {
             <h1 className="glow cursive-font animate-fadeIn">iPhone Video Guides</h1>
             <IphoneSearch searchQuery={searchQuery} setSearchQuery={setSearchQuery} handleSearch={handleSearch} />
 
+            {/* Distinctive CheckList button and Basic Knowledge Test message */}
             <button
-                className="toggle-tasks-button mb-4"
+                className="toggle-tasks-button"
                 onClick={() => setShowTasks((prev) => !prev)}
             >
-                {showTasks ? 'Hide Tasks' : 'Show Tasks'}
+                CheckList
             </button>
 
+            {!canProceed && (
+                <div className="warning">
+                    Basic Knowledge Test
+                </div>
+            )}
+
+            {quizPassed && message && (
+                <div className="success-message">
+                    {message}
+                </div>
+            )}
+
+            {/* Display Progress Tracker when CheckList button is clicked */}
             {showTasks && (
                 <div className="progress-tracker-box">
                     <ProgressTracker onCompletion={handleCompletion} />
                 </div>
             )}
 
-            {!canProceed && (
-                <div className="warning">
-                    Please complete all tasks to proceed!
-                </div>
-            )}
-
-            {message && (
-                <div className="success-message">
-                    {message}
-                </div>
-            )}
-
+            {/* Display embedded videos with comment sections */}
             {['https://www.youtube.com/watch?v=0nG7pAXRgvE', 'https://www.youtube.com/watch?v=pXvd8HNAdAk', 'https://www.youtube.com/watch?v=eyW7ytgNVwU'].map((videoUrl, index) => (
                 <div key={index} className="video-section mb-8">
                     <iframe
@@ -157,6 +149,7 @@ export default function IphonePage() {
                         <button className="upload-button hover:bg-gray-600 transition duration-300">Upload Your Video</button>
                     </div>
 
+                    {/* Display uploaded videos */}
                     <div className="uploaded-videos">
                         {uploadedVideos[index].map((videoSrc, videoIndex) => (
                             <video key={videoIndex} width="320" height="240" controls>
@@ -166,115 +159,66 @@ export default function IphonePage() {
                         ))}
                     </div>
 
+                    {/* Comment section */}
                     <div className="feedback-form mt-4">
-                        <h3 className="comment-prompt">This is the comment box:</h3>
-                        <textarea
-                            className="comment-input"
-                            placeholder="Leave a comment..."
+                        <h3 className="text-lg font-bold">Leave a Comment</h3>
+                        <input
+                            type="text"
                             value={commentInputs[index]}
                             onChange={(e) => {
-                                const newInputs = [...commentInputs];
-                                newInputs[index] = e.target.value;
-                                setCommentInputs(newInputs);
+                                const updatedInputs = [...commentInputs];
+                                updatedInputs[index] = e.target.value;
+                                setCommentInputs(updatedInputs);
                             }}
-                            onKeyDown={(e) => {
-                                if (e.key === 'Enter') {
-                                    e.preventDefault();
-                                    handleCommentSubmit(index);
-                                }
-                            }}
+                            placeholder="Add a comment"
+                            className="comment-text"
                         />
-                        <button onClick={() => handleCommentSubmit(index)}>Submit</button>
+                        <button onClick={() => handleCommentSubmit(index)} className="submit-button hover:bg-gray-700 transition duration-300">Submit</button>
                     </div>
 
-                    <div className="comment-display mt-2">
+                    {/* Display comments and replies */}
+                    <div className="comments mt-4">
                         {videoComments[index].map((comment, commentIndex) => (
-                            <div key={commentIndex} className="comment-box">
-                                <p className="comment-text"><strong>Comment:</strong> {comment.text}</p>
-                                <button className="reply-button" onClick={() => {
-                                    const newReplies = [...replyInputs];
-                                    if (!newReplies[index]) newReplies[index] = [];
-                                    newReplies[index][commentIndex] = '';
-                                    setReplyInputs(newReplies);
-                                }}>Reply</button>
+                            <div key={commentIndex} className="comment">
+                                <p>{comment.text}</p>
+                                <input
+                                    type="text"
+                                    value={replyInputs[index]?.[commentIndex] || ''}
+                                    onChange={(e) => {
+                                        const updatedReplies = [...replyInputs];
+                                        if (!updatedReplies[index]) updatedReplies[index] = [];
+                                        updatedReplies[index][commentIndex] = e.target.value;
+                                        setReplyInputs(updatedReplies);
+                                    }}
+                                    placeholder="Add a reply"
+                                    className="reply-text"
+                                />
+                                <button onClick={() => handleReplySubmit(index, commentIndex)} className="reply-button hover:bg-gray-700 transition duration-300">Reply</button>
 
-                                {replyInputs[index][commentIndex] !== undefined && (
-                                    <div>
-                                        <textarea
-                                            className="comment-input"
-                                            placeholder="Leave a reply..."
-                                            value={replyInputs[index][commentIndex] || ''}
+                                {comment.replies.map((reply, replyIndex) => (
+                                    <div key={replyIndex} className="nested-reply ml-6">
+                                        <p>{reply.text}</p>
+                                        <input
+                                            type="text"
+                                            value={nestedReplyInputs[index]?.[commentIndex]?.[replyIndex] || ''}
                                             onChange={(e) => {
-                                                const newReplies = [...replyInputs];
-                                                if (!newReplies[index]) newReplies[index] = [];
-                                                newReplies[index][commentIndex] = e.target.value;
-                                                setReplyInputs(newReplies);
+                                                const updatedNestedReplies = [...nestedReplyInputs];
+                                                if (!updatedNestedReplies[index]) updatedNestedReplies[index] = [];
+                                                if (!updatedNestedReplies[index][commentIndex]) updatedNestedReplies[index][commentIndex] = [];
+                                                updatedNestedReplies[index][commentIndex][replyIndex] = e.target.value;
+                                                setNestedReplyInputs(updatedNestedReplies);
                                             }}
-                                            onKeyDown={(e) => {
-                                                if (e.key === 'Enter') {
-                                                    e.preventDefault();
-                                                    handleReplySubmit(index, commentIndex);
-                                                }
-                                            }}
+                                            placeholder="Add a nested reply"
+                                            className="reply-text"
                                         />
-                                        <button onClick={() => handleReplySubmit(index, commentIndex)}>Submit Reply</button>
+                                        <button onClick={() => handleNestedReplySubmit(index, commentIndex, replyIndex)} className="reply-button hover:bg-gray-700 transition duration-300">Reply</button>
                                     </div>
-                                )}
-
-                                {comment.replies.length > 0 && (
-                                    <div className="replies">
-                                        {comment.replies.map((reply, replyIndex) => (
-                                            <div key={replyIndex} className="reply-box">
-                                                <p className="reply-text">Reply: {reply.text}</p>
-                                                <button className="reply-button" onClick={() => {
-                                                    const newNestedReplies = [...nestedReplyInputs];
-                                                    if (!newNestedReplies[index]) newNestedReplies[index] = [];
-                                                    if (!newNestedReplies[index][commentIndex]) newNestedReplies[index][commentIndex] = [];
-                                                    newNestedReplies[index][commentIndex][replyIndex] = '';
-                                                    setNestedReplyInputs(newNestedReplies);
-                                                }}>Reply</button>
-
-                                                {nestedReplyInputs[index][commentIndex]?.[replyIndex] !== undefined && (
-                                                    <div>
-                                                        <textarea
-                                                            className="comment-input"
-                                                            placeholder="Leave a reply to this reply..."
-                                                            value={nestedReplyInputs[index][commentIndex]?.[replyIndex] || ''}
-                                                            onChange={(e) => {
-                                                                const newNestedReplies = [...nestedReplyInputs];
-                                                                if (!newNestedReplies[index]) newNestedReplies[index] = [];
-                                                                if (!newNestedReplies[index][commentIndex]) newNestedReplies[index][commentIndex] = [];
-                                                                newNestedReplies[index][commentIndex][replyIndex] = e.target.value;
-                                                                setNestedReplyInputs(newNestedReplies);
-                                                            }}
-                                                            onKeyDown={(e) => {
-                                                                if (e.key === 'Enter') {
-                                                                    e.preventDefault();
-                                                                    handleNestedReplySubmit(index, commentIndex, replyIndex);
-                                                                }
-                                                            }}
-                                                        />
-                                                        <button onClick={() => handleNestedReplySubmit(index, commentIndex, replyIndex)}>Submit Nested Reply</button>
-                                                    </div>
-                                                )}
-
-                                                {reply.replies.length > 0 && (
-                                                    <div className="nested-replies">
-                                                        {reply.replies.map((nestedReply, nestedReplyIndex) => (
-                                                            <p key={nestedReplyIndex} className="reply-text">Nested Reply: {nestedReply}</p>
-                                                        ))}
-                                                    </div>
-                                                )}
-                                            </div>
-                                        ))}
-                                    </div>
-                                )}
+                                ))}
                             </div>
                         ))}
                     </div>
                 </div>
             ))}
-
         </div>
     );
 }

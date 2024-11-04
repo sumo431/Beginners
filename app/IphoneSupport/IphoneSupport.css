@@ -145,4 +145,61 @@ body {
     justify-content: center; /* Center content vertically */
 }
 
-/* Removed .progress-tracker-box styling as it's now in ProgressTracker.css */
+/* Style for the distinctive CheckList button */
+.toggle-tasks-button {
+    background-color: #ffcc00; /* Bright yellow for attention */
+    color: #000; /* Dark text for contrast */
+    padding: 15px 30px; /* Larger button size */
+    border-radius: 10px; /* Rounded corners */
+    font-size: 1.2em; /* Larger font for visibility */
+    font-weight: bold;
+    position: fixed; /* Fixed position for always-visible button */
+    top: 40%; /* Vertical center alignment */
+    right: 20px; /* Right side positioning */
+    cursor: pointer;
+    z-index: 1000; /* Above other elements */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Hover effects */
+}
+
+    .toggle-tasks-button:hover {
+        background-color: #e0b300; /* Darker yellow on hover */
+        transform: scale(1.05); /* Slight zoom effect */
+    }
+
+/* Style for the Basic Knowledge Test warning message */
+.warning {
+    position: fixed;
+    top: 47%; /* Position slightly below button */
+    right: 20px; /* Align with button */
+    color: #ffcc00; /* Match button color */
+    font-weight: bold;
+    font-size: 1.1em; /* Make text noticeable */
+    text-align: center;
+    z-index: 1000;
+}
+
+/* Style for the success message when quiz is passed */
+.success-message {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #2ecc71; /* Success green background */
+    color: #fff; /* White text for contrast */
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 1.2em;
+    text-align: center;
+}
+
+/* Styling for embedded video section */
+.video-section {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Styling for comment input and upload sections */
+.comment-prompt,
+.upload-button,
+.comment-text,
+.reply-text {
+    color: #ffcc00; /* Set yellow text color to match theme */
+}
