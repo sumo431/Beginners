@@ -2,9 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
+
 :root {
     --background: #ffffff;
     --foreground: #171717;
+    --cursive-font: 'Dancing Script', cursive; /* Define the cursive font */
 }
 
 @media (prefers-color-scheme: dark) {
@@ -27,14 +30,13 @@ body {
     align-items: center;
     border-radius: 30px;
     padding: 10px;
-    background: rgba(255, 255, 255, 0.1); /* Semi-transparent background */
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); /* Stronger shadow effect */
-    transition: background 0.3s ease; /* Smooth transition for background */
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    transition: background 0.3s ease;
 }
 
-    /* Change background color on hover */
     .search-container:hover {
-        background: rgba(255, 255, 255, 0.2); /* Change to a lighter background on hover */
+        background: rgba(255, 255, 255, 0.2);
     }
 
     /* Styles for the input */
@@ -45,13 +47,12 @@ body {
         margin-right: 10px;
         background: rgba(0, 0, 0, 0.3);
         color: white;
-        transition: border-color 0.3s ease; /* Smooth transition for border color */
+        transition: border-color 0.3s ease;
     }
 
-        /* Change border color on focus */
         .search-container input:focus {
-            border-color: #007bff; /* Change border color on focus */
-            outline: none; /* Remove default outline */
+            border-color: #007bff;
+            outline: none;
         }
 
     /* Styles for the button */
@@ -62,12 +63,12 @@ body {
         border: none;
         border-radius: 20px;
         cursor: pointer;
-        transition: background-color 0.3s ease, transform 0.2s; /* Smooth transition for background and scale */
+        transition: background-color 0.3s ease, transform 0.2s;
     }
 
         .search-container button:hover {
             background-color: #0056b3;
-            transform: scale(1.05); /* Scale button slightly on hover */
+            transform: scale(1.05);
         }
 
 @layer utilities {
@@ -76,7 +77,32 @@ body {
     }
 }
 
-/* Increase scale for box hover effect */
-.hover\:scale-150:hover {
-    transform: scale(1.5); /* Scale boxes to 150% */
+/* Fading animation for welcome text */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.animate-fadeIn {
+    animation: fadeIn 2s ease-in-out;
+}
+
+/* Hover effect for boxes */
+.hover\:scale-120:hover {
+    transform: scale(1.2);
+}
+
+/* Apply cursive font to specific classes */
+.cursive-font {
+    font-family: var(--cursive-font); /* Use the cursive font defined in :root */
+}
+
+/* Glowing effect */
+.glow {
+    text-shadow: 0 0 5px yellow, 0 0 10px yellow, 0 0 15px yellow;
 }

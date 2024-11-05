@@ -1,9 +1,9 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import SearchContainer from './components/Searchbar/SearchContainer'; // Adjust the import based on your file structure
+import SearchContainer from './components/Searchbar/SearchContainer'; // Adjust path if necessary
 import Link from 'next/link';
-import EntryButton from './components/UserEntries/EntryButton'; // Import the EntryButton component
+import EntryButton from './components/UserEntries/EntryButton';
 
 export default function HomePage() {
     const [boxesVisible, setBoxesVisible] = useState(false);
@@ -11,14 +11,16 @@ export default function HomePage() {
     useEffect(() => {
         const timer = setTimeout(() => {
             setBoxesVisible(true);
-        }, 100); // Delay for the animation effect
+        }, 100);
         return () => clearTimeout(timer);
     }, []);
 
     return (
-        <div className="p-4 bg-black min-h-screen flex flex-col items-center relative"> {/* Center the content */}
-            <h1 className="text-3xl font-bold mb-4 text-white">Beginners</h1> {/* Change title to "Beginners" */}
-            <p className="mb-4 text-white text-center">Click on any of the boxes below to explore different themes:</p>
+        <div className="p-4 bg-black min-h-screen flex flex-col items-center relative">
+            <h1 className="text-5xl font-bold mb-4 text-white glow cursive-font">Beginners</h1>
+            <p className="mb-4 text-white text-center animate-fadeIn text-3xl">
+                Welcome!
+            </p>
 
 <<<<<<< HEAD
             {/* Boxes Section */}
@@ -81,12 +83,17 @@ export default function HomePage() {
                 Sign Up
             </Link>
 
+<<<<<<< HEAD
             <div className="w-full max-w-xl mb-8"> {/* Set width for search container */}
                 <SearchContainer /> {/* Include the SearchContainer here */}
 >>>>>>> 469f44b89e07ebdac17a78ad6cc0fc7b80bd74ac
+=======
+            <div className="w-full max-w-xl mb-8">
+                <SearchContainer /> {/* This renders your boxes */}
+>>>>>>> b17532a4167ba0e03588ac71c16f7f91aaa48dc5
             </div>
 
-            <EntryButton /> {/* Include the EntryButton here */}
+            <EntryButton />
         </div>
     );
 }

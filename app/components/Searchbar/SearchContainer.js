@@ -6,6 +6,7 @@ import Searchbar from './Searchbar';
 
 export default function SearchContainer() {
     const [searchResults, setSearchResults] = useState([]);
+    const [query, setQuery] = useState(""); // State for the search query
 
     const boxes = [
         { id: 1, title: 'iPhone', image: '/pictures/iphone.jpg', link: '/iphone' },
@@ -17,6 +18,7 @@ export default function SearchContainer() {
     ];
 
     const handleSearch = (query) => {
+        setQuery(query); // Update the query state
         const filteredBoxes = boxes.filter(box =>
             box.title.toLowerCase().includes(query.toLowerCase())
         );
@@ -26,35 +28,38 @@ export default function SearchContainer() {
     return (
         <div>
             <Searchbar onSearch={handleSearch} />
-            <div className="flex flex-col gap-4 mt-4 w-full max-w-4xl">
-                {searchResults.length > 0 ? (
-                    searchResults.map(box => (
-                        <Link
-                            href={box.link}
-                            key={box.id}
-                            className="flex flex-col items-center bg-gray-800 p-4 rounded-lg hover:bg-blue-500 transition duration-200 transform hover:scale-105"
-                        >
-                            <img src={box.image} alt={box.title} className="w-full h-32 object-cover mb-2 rounded-md" />
-                            <h2 className="text-lg font-semibold text-center text-white hover:text-black">{box.title}</h2>
-                        </Link>
-                    ))
-                ) : (
-                    <div className="border-2 border-yellow-500 p-4 rounded-lg mt-4">
-                        <p className="text-yellow-400 text-center mb-2">No matches found. Here are our recommendations for you:</p>
-                        <div className="flex flex-col gap-4">
-                            {boxes.map(box => (
-                                <Link
-                                    href={box.link}
-                                    key={box.id}
-                                    className="flex flex-col items-center bg-gray-800 p-4 rounded-lg hover:bg-blue-500 transition duration-200 transform hover:scale-105"
-                                >
-                                    <img src={box.image} alt={box.title} className="w-full h-32 object-cover mb-2 rounded-md" />
-                                    <h2 className="text-lg font-semibold text-center text-white hover:text-black">{box.title}</h2>
-                                </Link>
-                            ))}
-                        </div>
-                    </div>
-                )}
+            <div className="mt-4 w-full max-w-4xl">
+                {query && searchResults.length === 0 ? (
+                    <p className="text-center text-white mb-4 font-bold text-3xl">
+                        No results found. Here are some recommendations:
+                    </p>
+                ) : null}
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    {searchResults.length > 0 ? (
+                        searchResults.map(box => (
+                            <Link
+                                href={box.link}
+                                key={box.id}
+                                className="flex flex-col items-center bg-gray-800 p-4 rounded-lg hover:bg-blue-500 transition duration-200 transform hover:scale-105"
+                            >
+                                <img src={box.image} alt={box.title} className="w-full h-32 object-cover mb-2 rounded-md" />
+                                <h2 className="text-lg font-semibold text-center text-white hover:text-black">{box.title}</h2>
+                            </Link>
+                        ))
+                    ) : (
+                        boxes.map(box => (
+                            <Link
+                                href={box.link}
+                                key={box.id}
+                                className="flex flex-col items-center bg-gray-800 p-4 rounded-lg hover:bg-blue-500 transition duration-200 transform hover:scale-105"
+                            >
+                                <img src={box.image} alt={box.title} className="w-full h-32 object-cover mb-2 rounded-md" />
+                                <h2 className="text-lg font-semibold text-center text-white hover:text-black">{box.title}</h2>
+                            </Link>
+                        ))
+                    )}
+                </div>
             </div>
         </div>
     );
