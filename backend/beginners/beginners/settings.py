@@ -37,9 +37,11 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    'django_extensions',
     'ninja',
     'corsheaders',
     'search',
+    
 ]
 
 MIDDLEWARE = [
@@ -129,3 +131,10 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 ALLOWED_HOSTS = ['localhost', '127.0.0.1', '0.0.0.0']
 
 CORS_ALLOW_ALL_ORIGINS = True # for dev only*
+
+# Django Ninja settings (API)
+NINJA_API = {
+    'version': '1.0.0',
+    'title': 'Beginners API',
+    'description': 'API for managing posts and search functionality.',
+}
