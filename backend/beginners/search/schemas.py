@@ -15,8 +15,14 @@ class PostSchema(BaseModel):
     content: str
 
     class Config:
-        from_attributes = True  # Change 'orm_mode' to 'from_attributes' for Pydantic V2 compatibility
+        from_attributes = True  # Change 'orm_mode' to 'from_attributes' for Pydantic
 
 # Schema for success response after deleting a post.
-class SuccessResponseSchema(BaseModel):
-    message: str
+
+class DeletePostResponseSchema(BaseModel):
+    id: int
+    status: str  # You can use 'status' or any other field you prefer
+    message: str  # Message to indicate success or failure
+
+    class Config:
+        from_attributes = True

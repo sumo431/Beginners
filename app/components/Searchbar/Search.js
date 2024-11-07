@@ -70,7 +70,7 @@ export default function Searchbar() {
                             <Link
                                 href={box.link}
                                 key={box.id}
-                                className="flex flex-col items-center bg-gray-800 p-4 rounded-lg hover:bg-blue-500 transition duration-200 transform hover:scale-105"
+                                className="flex flex-col items-center bg-gray-800 p-4 rounded-lg border border-brown-500 hover:bg-blue-500 transition duration-200 transform hover:scale-105"
                             >
                                 <img src={box.image} alt={box.title} className="w-full h-32 object-cover mb-2 rounded-md" />
                                 <h2 className="text-lg font-semibold text-center text-white hover:text-black">{box.title}</h2>
@@ -81,7 +81,7 @@ export default function Searchbar() {
                             <Link
                                 href={box.link}
                                 key={box.id}
-                                className="flex flex-col items-center bg-gray-800 p-4 rounded-lg hover:bg-blue-500 transition duration-200 transform hover:scale-105"
+                                className="flex flex-col items-center bg-blue-800 p-4 rounded-lg border border-gray-500 hover:bg-blue-500 transition duration-200 transform hover:scale-105"
                             >
                                 <img src={box.image} alt={box.title} className="w-full h-32 object-cover mb-2 rounded-md" />
                                 <h2 className="text-lg font-semibold text-center text-white hover:text-black">{box.title}</h2>

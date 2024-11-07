@@ -1,7 +1,8 @@
+# api.py in backend/search/api.py
+
 from ninja import NinjaAPI
 from .models import Post
-from .schemas import PostSchema, CreatePostSchema, SuccessResponseSchema
-from django.http import JsonResponse
+from .schemas import PostSchema, CreatePostSchema, DeletePostResponseSchema
 
 api = NinjaAPI()
 
@@ -18,14 +19,14 @@ def create_post(request, post: CreatePostSchema):
         title=post.title,
         content=post.content
     )
-    return PostSchema.from_orm(new_post)  # Return the newly created post as PostSchema
+    return PostSchema.from_orm(new_post)
 
 # Delete a post
-@api.delete("/posts/{post_id}", response=SuccessResponseSchema)
+@api.delete("/posts/{post_id}", response=DeletePostResponseSchema)
 def delete_post(request, post_id: int):
     try:
         post = Post.objects.get(id=post_id)
         post.delete()
-        return SuccessResponseSchema(message="Post deleted successfully!")
+        return DeletePostResponseSchema(status="success", message="Post deleted successfully!")
     except Post.DoesNotExist:
-        return SuccessResponseSchema(message="Post not found.")
+        return DeletePostResponseSchema(status="error", message="Post not found.")

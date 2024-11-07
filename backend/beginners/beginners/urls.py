@@ -16,7 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from search.api import api  # Correct import of the NinjaAPI instance
+from search.api import api  # Import the NinjaAPI instance
 from .views import home
 
 urlpatterns = [
@@ -24,3 +24,4 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path("api/", api.urls),  # Make sure api.urls is included here
 ]
+
