@@ -93,18 +93,14 @@ The production setup builds an optimized version of the app:
    - django-extensions
 
 # ***if you can't get it running on local machine***
- ## 'Venv' option 
+ ## 'Venv' option for wsl
+	*FIRSTLY, TYPE 'wsl'*
 	1. 'sudo apt update'
 	2. 'sudo apt install python3-venv'
 	3. 'python3 -m venv venv'
 	4. 'source venv/bin/activate'
 	5. 'deactive' (not often use)
-	6. '.\venv\Scripts\activa
-	
-	
-	
-	te' (to get to venv server)
-	7. 'python manage.py runserver'
+	6. 'python manage.py runserver'
 	
 ##	Now can you install the dependencies
 	- 'pip install django-cors-headers'

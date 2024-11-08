@@ -15,11 +15,17 @@ def get_posts(request):
 # Create a new post
 @api.post("/posts", response=PostSchema)
 def create_post(request, post: CreatePostSchema):
-    new_post = Post.objects.create(
-        title=post.title,
-        content=post.content
-    )
-    return PostSchema.from_orm(new_post)
+    print(f"Received data: {post}")  # Log the incoming data
+    try:
+        new_post = Post.objects.create(
+            title=post.title,
+            content=post.content
+        )
+        return PostSchema.from_orm(new_post)
+    except Exception as e:
+        print(f"Error creating post: {e}")  # Log any error
+        raise e
+
 
 # Delete a post
 @api.delete("/posts/{post_id}", response=DeletePostResponseSchema)

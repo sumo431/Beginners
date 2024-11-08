@@ -24,4 +24,3 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path("api/", api.urls),  # Make sure api.urls is included here
 ]
-
