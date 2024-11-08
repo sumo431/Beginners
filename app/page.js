@@ -76,7 +76,7 @@ export default function HomePage() {
                 </h1>
 
                 {/* Buttons Section (Positioned on the left) */}
-                <div className="absolute top-4 left-4 flex gap-8">
+                <div className="absolute top-4 left-4 flex gap-2">
                     {/* Log In Button */}
                     <Link
                         href="/login"
@@ -96,7 +96,7 @@ export default function HomePage() {
 
             {/* Main Content */}
             <main className="p-4 w-full max-w-4xl flex flex-col items-center justify-center">
-                <p className="mb-4 text-white text-center animate-fadeIn text-3xl">
+                <p className="mb-4 text-blue text-center animate-fadeIn text-3xl">
                     Welcome!
                 </p>
 

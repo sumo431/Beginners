@@ -92,17 +92,21 @@ The production setup builds an optimized version of the app:
    - django-cors-headers
    - django-extensions
 
-***if you can't get it running on local machine***
-4. 'Venv' option 
+# ***if you can't get it running on local machine***
+ ## 'Venv' option 
 	1. 'sudo apt update'
 	2. 'sudo apt install python3-venv'
 	3. 'python3 -m venv venv'
 	4. 'source venv/bin/activate'
 	5. 'deactive' (not often use)
-	6. '.\venv\Scripts\activate' (to get to venv server)
+	6. '.\venv\Scripts\activa
+	
+	
+	
+	te' (to get to venv server)
 	7. 'python manage.py runserver'
 	
-	Now can you install the dependencies
+##	Now can you install the dependencies
 	- 'pip install django-cors-headers'
 	- 'pip install django-extensions'
 	- 'pip install django-ninja'
@@ -119,7 +123,7 @@ The production setup builds an optimized version of the app:
 
    If this doesn't work, the Dockerfile will be updated soon to support the backend.
 
-   Creating Admin Account
+   # Creating Admin Account
    - python manage.py createsuperuser
    - Open http://127.0.0.1:8000/admin/auth/
    - log in and check for what youre looking for
