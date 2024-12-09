@@ -1,0 +1,226 @@
+/* Overall styling for the video section */
+.video-section {
+    margin: 20px 0;
+    border: 1px solid #ccc; /* Light gray border for each video section */
+    padding: 15px;
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    background-color: #f9f9f9; /* Light background color */
+}
+
+/* Glow effect for headers */
+.glow {
+    text-shadow: 0 0 10px rgba(255, 255, 0, 0.8); /* Yellow glow */
+}
+
+/* Cursive font styling */
+.cursive-font {
+    font-family: 'Cursive', sans-serif; /* Apply cursive font */
+    font-size: 2.5rem; /* Increase font size for emphasis */
+    color: yellow; /* Yellow color for cursive text */
+}
+
+/* Animation for fade-in effect */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* Apply fade-in animation */
+.animate-fadeIn {
+    animation: fadeIn 2s ease-in-out; /* Fade in over 2 seconds */
+}
+
+/* Styling for the search input and button */
+.search-container {
+    margin: 20px 0; /* Space around the search input */
+    display: flex; /* Flexbox to align input and button */
+}
+
+.search-button {
+    background-color: #007bff; /* Primary button color */
+    color: white; /* Text color */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
+    padding: 10px 15px; /* Padding for the button */
+    cursor: pointer; /* Pointer cursor on hover */
+    margin-left: 10px; /* Space between input and button */
+    transition: background-color 0.3s; /* Smooth transition for background color */
+}
+
+    .search-button:hover {
+        background-color: #0056b3; /* Darker shade on hover */
+    }
+
+/* Comment box styling */
+.feedback-form {
+    margin: 20px 0; /* Margin for the feedback form */
+}
+
+.comment-prompt {
+    margin-bottom: 10px; /* Space below the prompt */
+    font-weight: bold; /* Make the prompt text bold */
+}
+
+/* Updated comment input styling for seamless look */
+.comment-input {
+    width: 100%; /* Full width of the parent */
+    height: 80px; /* Increased height for a larger comment box */
+    padding: 10px; /* Padding inside the textarea */
+    border: none; /* No border for a seamless look */
+    border-radius: 10px; /* Rounded corners */
+    background-color: #e6f7ff; /* Light blue background */
+    resize: none; /* Disable resizing */
+}
+
+    /* Focus effect for comment input */
+    .comment-input:focus {
+        outline: none; /* Remove default outline */
+    }
+
+/* Displaying comments */
+.comment-display {
+    margin-top: 15px; /* Space above comment display */
+}
+
+/* Styling for comment boxes */
+.comment-box {
+    padding: 10px; /* Padding inside the comment box */
+    margin: 10px 0; /* Margin between comment boxes */
+    border-radius: 5px; /* Rounded corners for comments */
+    background-color: #e6f7ff; /* Light blue background for comments */
+}
+
+/* Styling for comment text */
+.comment-text {
+    margin: 5px 0; /* Margin above and below the comment text */
+}
+
+/* Styling for reply buttons */
+.reply-button {
+    margin-left: 10px; /* Space between the comment and the button */
+    background-color: #007bff; /* Button color */
+    color: white; /* Button text color */
+    border: 1px solid #007bff; /* Blue border for the reply button */
+    border-radius: 5px; /* Rounded corners */
+    padding: 5px 10px; /* Padding for the button */
+    cursor: pointer; /* Pointer on hover */
+    transition: background-color 0.3s; /* Smooth transition for background color */
+}
+
+    .reply-button:hover {
+        background-color: #0056b3; /* Darker shade on hover */
+    }
+
+/* Styling for replies */
+.replies {
+    margin-left: 20px; /* Indent for replies */
+    margin-top: 5px; /* Space above replies */
+}
+
+/* Nested replies styling */
+.nested-replies {
+    margin-left: 20px; /* Indent for nested replies */
+    margin-top: 5px; /* Space above nested replies */
+    padding: 10px; /* Padding for nested reply box */
+    border: 1px solid #007bff; /* Border for nested replies */
+    border-radius: 5px; /* Rounded corners */
+    background-color: #e6f7ff; /* Light blue background for nested replies */
+}
+
+/* Black background for the entire page */
+body {
+    background-color: black; /* Black background color */
+    color: #ffcc00; /* Default text color for visibility */
+}
+
+/* Min height for main content to take full screen */
+.min-h-screen {
+    min-height: 100vh; /* Ensure full height */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /* Center content vertically */
+}
+
+/* Style for the distinctive CheckList button */
+.toggle-tasks-button {
+    background-color: #ffcc00; /* Bright yellow for attention */
+    color: #000; /* Dark text for contrast */
+    padding: 15px 30px; /* Larger button size */
+    border-radius: 10px; /* Rounded corners */
+    font-size: 1.2em; /* Larger font for visibility */
+    font-weight: bold;
+    position: fixed; /* Fixed position for always-visible button */
+    top: 40%; /* Vertical center alignment */
+    right: 20px; /* Right side positioning */
+    cursor: pointer;
+    z-index: 1000; /* Above other elements */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Hover effects */
+}
+
+    .toggle-tasks-button:hover {
+        background-color: #e0b300; /* Darker yellow on hover */
+        transform: scale(1.05); /* Slight zoom effect */
+    }
+
+/* Style for the Basic Knowledge Test warning message */
+.warning {
+    position: fixed;
+    top: 47%; /* Position slightly below button */
+    right: 20px; /* Align with button */
+    color: #ffcc00; /* Match button color */
+    font-weight: bold;
+    font-size: 1.1em; /* Make text noticeable */
+    text-align: center;
+    z-index: 1000;
+}
+
+/* Style for the success message when quiz is passed */
+.success-message {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #2ecc71; /* Success green background */
+    color: #fff; /* White text for contrast */
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 1.2em;
+    text-align: center;
+}
+
+/* Styling for embedded video section */
+.video-section {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Styling for the main video import button */
+.main-video-button {
+    background-color: #28a745; /* Bright green for visibility */
+    color: white; /* White text */
+    padding: 10px 20px; /* Adequate padding */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor */
+    transition: background-color 0.3s; /* Smooth transition */
+    margin-bottom: 20px; /* Space below the button */
+}
+
+    .main-video-button:hover {
+        background-color: #218838; /* Darkeginneer green on hover */
+    }
+.uploaded-video-container {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.uploaded-video {
+    width: 100%;
+    max-width: 600px; /* or any size you prefer */
+    height: auto;
+}

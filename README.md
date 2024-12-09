@@ -78,6 +78,52 @@ The production setup builds an optimized version of the app:
 
    Note: this will require a local install of Node.js, npm, and all other dependencies.
 
+3. Do test the backend run:
+
+   ```shell
+   cd backend/beginners
+   ```
+
+   Note: this will not work for you because there's a few needed dependencies.
+
+   The main dependencies include:
+   - Django
+   - django-ninja
+   - django-cors-headers
+   - django-extensions
+
+# ***if you can't get it running on local machine***
+ ## 'Venv' option for wsl
+	*FIRSTLY, TYPE 'wsl'*
+	1. 'sudo apt update'
+	2. 'sudo apt install python3-venv'
+	3. 'python3 -m venv venv'
+	4. 'source venv/bin/activate'
+	5. 'deactive' (not often use)
+	6. 'python manage.py runserver'
+	
+##	Now can you install the dependencies
+	- 'pip install django-cors-headers'
+	- 'pip install django-extensions'
+	- 'pip install django-ninja'
+
+   ```shell
+   pip install django django-ninja django-cors-headers
+   ```
+
+   After installing dependencies, you can start the server:
+
+   ```shell
+   python manage.py runserver  # Start the server
+   ```
+
+   If this doesn't work, the Dockerfile will be updated soon to support the backend.
+
+   # Creating Admin Account
+   - python manage.py createsuperuser
+   - Open http://127.0.0.1:8000/admin/auth/
+   - log in and check for what youre looking for
+
 ## Environment Variables
 
 - Next.js 14.2.13

@@ -2,26 +2,107 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+    --background: #fceed1;
+    --foreground: #171717;
+    --cursive-font: 'Dancing Script', cursive; /* Define the cursive font */
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+    :root {
+        --background: #fceed1;
+        --foreground: #ededed;
+    }
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+    color: #fceed1;
+    background: var(--background);
+    font-family: Arial, Helvetica, sans-serif;
 }
 
+/* Enhanced styles for the search container */
+.search-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 30px;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    transition: background 0.3s ease;
+}
+
+    .search-container:hover {
+        background: rgba(255, 255, 255, 0.2);
+    }
+
+    /* Styles for the input */
+    .search-container input {
+        border: 1px solid rgba(255, 255, 255, 0.5);
+        border-radius: 20px;
+        padding: 10px 20px;
+        margin-right: 10px;
+        background: rgba(0, 0, 0, 0.3);
+        color: white;
+        transition: border-color 0.3s ease;
+    }
+
+        .search-container input:focus {
+            border-color: sandybrown;
+            outline: none;
+        }
+
+    /* Styles for the button */
+    .search-container button {
+        padding: 10px 20px;
+        background-color: sandybrown;
+        color: white;
+        border: none;
+        border-radius: 20px;
+        cursor: pointer;
+        transition: background-color 0.3s ease, transform 0.2s;
+    }
+
+        .search-container button:hover {
+            background-color: #0056b3;
+            transform: scale(1.05);
+        }
+
 @layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+    .text-balance {
+        text-wrap: balance;
+    }
+}
+
+/* Fading animation for welcome text */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.animate-fadeIn {
+    animation: fadeIn 2s ease-in-out;
+}
+
+/* Hover effect for boxes */
+.hover\:scale-120:hover {
+    transform: scale(1.2);
+}
+
+/* Apply cursive font to specific classes */
+.cursive-font {
+    font-family: var(--cursive-font); /* Use the cursive font defined in :root */
+}
+
+/* Glowing effect */
+.glow {
+    text-shadow: 0 0 5px brown, 0 0 10px brown, 0 0 15px brown;
 }
